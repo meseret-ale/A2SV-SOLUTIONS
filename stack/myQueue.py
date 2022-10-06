@@ -6,7 +6,7 @@ class MyQueue:
         self.queue.append(x)
 
     def pop(self) -> int:
-        vlu = self.queue.pop()
+        vlu = self.queue.pop(0)
         return vlu
     def peek(self) -> int:
         vlu = self.queue[0]
