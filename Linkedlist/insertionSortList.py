@@ -5,7 +5,6 @@
 #         self.next = next
 class Solution:
     def insertionSortList(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        
         start = end = head
         count = 0
         ls = []
@@ -14,7 +13,6 @@ class Solution:
             ls.append(start.val)
             start = start.next
         lss = sorted(ls, reverse= True)
-        
         m = 0
         while end:
             temp = head
@@ -22,7 +20,6 @@ class Solution:
             head.next = temp
             m += 1
             end = end.next
-        
         c = 1
         ends = head
         while True:
@@ -31,10 +28,5 @@ class Solution:
                 break
             else:
                 ends = ends.next
-                
             c += 1
-            
-
- 
         return head
-    
