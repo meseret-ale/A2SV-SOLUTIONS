@@ -6,32 +6,35 @@
 class Solution:
     def insertionSortList(self, head: Optional[ListNode]) -> Optional[ListNode]:
         
-        first,prev = head, head
-        start = first.next
-        
+        start = end = head
+        count = 0
+        ls = []
         while start:
-            if start.val < prev.val:
-                # do the insert logic
-                temp = start
-                the_next = start.next
-                prev.next = prev.next.next
-                if first.val > temp.val:
-                    temp.next = first
-                    head = temp
-                    first = head
-                else:
-                    prevn = None
-                    while first:
-                        if first.val > temp.val:
-                            prevn.next = temp
-                            temp.next = first
-                            break
-                        else:
-                            prevn = first
-                        first = first.next
-                    first = head
-                start = the_next
+            count += 1
+            ls.append(start.val)
+            start = start.next
+        lss = sorted(ls, reverse= True)
+        
+        m = 0
+        while end:
+            temp = head
+            head = ListNode(lss[m])
+            head.next = temp
+            m += 1
+            end = end.next
+        
+        c = 1
+        ends = head
+        while True:
+            if c == count:
+                ends.next = None
+                break
             else:
-                prev = start
-                start = start.next
+                ends = ends.next
+                
+            c += 1
+            
+
+ 
         return head
+    
